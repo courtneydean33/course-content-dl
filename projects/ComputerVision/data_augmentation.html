@@ -1544,8 +1544,8 @@ GPU is enabled in this notebook.
 <div class="section" id="mixup">
 <h2>Mixup<a class="headerlink" href="#mixup" title="Permalink to this headline">¶</a></h2>
 <p>Mixup is a data augmentation technique that combines pairs of examples via a convex combination of the images and the labels. Given images <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> with labels <span class="math notranslate nohighlight">\(y_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span>, respectively, and <span class="math notranslate nohighlight">\(\lambda \in [0, 1]\)</span>, mixup creates a new image <span class="math notranslate nohighlight">\(\hat{x}\)</span> with label <span class="math notranslate nohighlight">\(\hat{y}\)</span> the following way:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14bd0945-95a9-40de-b23d-8f23318b3f66">
-<span class="eqno">(135)<a class="headerlink" href="#equation-14bd0945-95a9-40de-b23d-8f23318b3f66" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dbd88a4c-f62f-45d5-a284-a825ba417708">
+<span class="eqno">(135)<a class="headerlink" href="#equation-dbd88a4c-f62f-45d5-a284-a825ba417708" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \hat{x} &amp;= \lambda x_i + (1 - \lambda) x_j \\
 \hat{y} &amp;= \lambda y_i + (1 - \lambda) y_j
 \end{align}\]</div>
@@ -2353,7 +2353,15 @@ best test accuraccy over 15 epochs: 81.54000091552734
   
     By Neuromatch<br/>
   
-      &copy; Copyright .<br/>
+    <div class="extra_footer">
+      <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+    </div>
 </p>
         </footer>
     </div>
