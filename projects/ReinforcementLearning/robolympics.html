@@ -1649,7 +1649,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_ckpt_to_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Saves agent checkpoint directory to Google Drive.</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Saves agent checkpoint directory to Google Drive.</span>
 
 <span class="sd">  WARNING: Will replace the entire content of the</span>
 <span class="sd">  drive directory `/root/drive/MyDrive/acme_ckpt`.</span>
@@ -1666,7 +1666,7 @@ title="Print to PDF"
 
 
 <span class="k">def</span> <span class="nf">restore_ckpt_from_drive</span><span class="p">(</span><span class="n">agent</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Restores agent checkpoint directory from Google Drive.</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Restores agent checkpoint directory from Google Drive.</span>
 
 <span class="sd">  The name of the local checkpoint directory will be different</span>
 <span class="sd">  than it was when the checkpoint was originally saved.</span>
@@ -1698,7 +1698,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_video</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">framerate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Generates video from `frames`.</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Generates video from `frames`.</span>
 
 <span class="sd">  Args:</span>
 <span class="sd">    frames (ndarray): Array of shape (n_frames, height, width, 3).</span>
@@ -1743,7 +1743,7 @@ title="Print to PDF"
                        <span class="n">vmax</span><span class="o">=</span><span class="mf">150.</span><span class="p">,</span>
                        <span class="n">num_atoms</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span>
                       <span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Networks for D4PG agent.&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Networks for D4PG agent.&quot;&quot;&quot;</span>
   <span class="n">action_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">action_spec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
   <span class="n">policy_network</span> <span class="o">=</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
@@ -1770,7 +1770,7 @@ title="Print to PDF"
                        <span class="n">policy_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                        <span class="n">critic_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                       <span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Networks for DDPG agent.&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Networks for DDPG agent.&quot;&quot;&quot;</span>
   <span class="n">action_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">action_spec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
   <span class="n">policy_network</span> <span class="o">=</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
@@ -1795,7 +1795,7 @@ title="Print to PDF"
                        <span class="n">vmax</span><span class="o">=</span><span class="mf">150.</span><span class="p">,</span>
                        <span class="n">num_atoms</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span>
                       <span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Networks for DMPO agent.&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Networks for DMPO agent.&quot;&quot;&quot;</span>
   <span class="n">action_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">action_spec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
   <span class="n">policy_network</span> <span class="o">=</span> <span class="n">snt</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
@@ -1897,22 +1897,22 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hopper</span><span class="p">(</span><span class="n">HopperBulletEnv</span><span class="p">):</span>
 
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">episode_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Modifies `__init__` in `HopperBulletEnv` parent class.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `__init__` in `HopperBulletEnv` parent class.&quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span> <span class="o">=</span> <span class="n">episode_steps</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">render</span><span class="o">=</span><span class="n">render</span><span class="p">)</span>
 
   <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Modifies `reset` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `reset` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
   <span class="k">def</span> <span class="nf">_isDone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Modifies `_isDone` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Modifies `_isDone` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">episode_steps</span>
             <span class="ow">or</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_isDone</span><span class="p">())</span>
 
   <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Fully overrides `step` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fully overrides `step` in `WalkerBaseBulletEnv` base class.&quot;&quot;&quot;</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">step_counter</span> <span class="o">+=</span> <span class="mi">1</span>
 

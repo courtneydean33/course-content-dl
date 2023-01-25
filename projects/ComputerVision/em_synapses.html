@@ -1270,9 +1270,9 @@ title="Print to PDF"
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
-<span class="o">!</span>pip install scikit-image --quiet
-<span class="o">!</span>pip install pillow --quiet
-<span class="o">!</span>pip install scikit-image --quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-image<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pillow<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-image<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
@@ -1631,7 +1631,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
-  <span class="sd">&#39;&#39;&#39;Train the model for one epoch.&#39;&#39;&#39;</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Train the model for one epoch.&#39;&#39;&#39;</span>
 
   <span class="c1"># set the model into train mode</span>
   <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -1675,7 +1675,7 @@ title="Print to PDF"
 
 
 <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">validation_dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
-  <span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the validation dataset.&#39;&#39;&#39;</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the validation dataset.&#39;&#39;&#39;</span>
 
   <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
   <span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">validation_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
@@ -1684,7 +1684,7 @@ title="Print to PDF"
 
 
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
-  <span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the test dataset.&#39;&#39;&#39;</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;Evaluate prediction accuracy on the test dataset.&#39;&#39;&#39;</span>
 
   <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
   <span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
@@ -1778,7 +1778,7 @@ title="Print to PDF"
 <span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
 <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
 
-<span class="o">!</span>pip install dominate --quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>dominate<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>

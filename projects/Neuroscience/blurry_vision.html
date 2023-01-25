@@ -1361,8 +1361,8 @@ title="Print to PDF"
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
-<span class="o">!</span>pip install torch_intermediate_layer_getter --quiet
-<span class="o">!</span>pip install Pillow --quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>torch_intermediate_layer_getter<span class="w"> </span>--quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Pillow<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
@@ -1645,7 +1645,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 <span class="k">class</span> <span class="nc">AlexNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">downscale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Args:</span>
 <span class="sd">      num_classes: int</span>
 <span class="sd">      downscale: int</span>
@@ -1691,7 +1691,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
     <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4096</span><span class="o">//</span><span class="n">downscale</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 
   <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Args:</span>
 <span class="sd">      x: torch.Tensor</span>
 <span class="sd">    Returns:</span>

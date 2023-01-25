@@ -1308,7 +1308,7 @@ title="Print to PDF"
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
-<span class="o">!</span>pip install tqdm --quiet
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tqdm<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
@@ -1534,8 +1534,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>Previous literature predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e203b4d-c259-44ea-b69f-70bd30af1844">
-<span class="eqno">(133)<a class="headerlink" href="#equation-2e203b4d-c259-44ea-b69f-70bd30af1844" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e938070d-08bd-4506-a43d-2d9e8940ec0a">
+<span class="eqno">(133)<a class="headerlink" href="#equation-e938070d-08bd-4506-a43d-2d9e8940ec0a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 N &amp;= 40 \\
 M &amp;= 400
 \end{align}\]</div>
@@ -1672,7 +1672,7 @@ M &amp;= 400
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getDesignMatrix</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">motions</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">halfwin</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the design matrix and vector of classes for a logistic regression.</span>
 
 <span class="sd">    Args:</span>
@@ -1761,7 +1761,7 @@ M &amp;= 400
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classifyMotionFromSpikes</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span>
                              <span class="n">halfwin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">motions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Runs one logistic regression using the specified parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -1823,7 +1823,7 @@ M &amp;= 400
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">runAnalysis</span><span class="p">(</span><span class="n">spikes</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Runs one logistic regression using the specified parameters.</span>
 
 <span class="sd">    Args:</span>
@@ -1890,7 +1890,7 @@ M &amp;= 400
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotAccuracies</span><span class="p">(</span><span class="n">accuracies</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot the accuracies from our main fitting function.</span>
 
 <span class="sd">    Args:</span>

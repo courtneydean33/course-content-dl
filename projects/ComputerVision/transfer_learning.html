@@ -1714,7 +1714,7 @@ Number of classes: 100
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title ResNet model in PyTorch</span>
 
 <span class="k">class</span> <span class="nc">BasicBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;ResNet in PyTorch.</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;ResNet in PyTorch.</span>
 <span class="sd">      Reference:</span>
 <span class="sd">      [1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun</span>
 <span class="sd">        Deep Residual Learning for Image Recognition. arXiv:1512.03385</span>
@@ -1961,7 +1961,7 @@ Using CUDA..
   <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;./checkpoint/</span><span class="si">{</span><span class="n">outModelName</span><span class="si">}</span><span class="s1">.t7&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">adjust_learning_rate</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;decrease the learning rate at 100 and 150 epoch&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;decrease the learning rate at 100 and 150 epoch&quot;&quot;&quot;</span>
   <span class="n">lr</span> <span class="o">=</span> <span class="n">base_learning_rate</span>
   <span class="k">if</span> <span class="n">epoch</span> <span class="o">&lt;=</span> <span class="mi">9</span> <span class="ow">and</span> <span class="n">lr</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
     <span class="c1"># warm-up training for large minibatch</span>
