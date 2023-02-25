@@ -1534,8 +1534,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>Previous literature predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e938070d-08bd-4506-a43d-2d9e8940ec0a">
-<span class="eqno">(133)<a class="headerlink" href="#equation-e938070d-08bd-4506-a43d-2d9e8940ec0a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d1b5b95e-56ef-46bb-8a14-73c5964f7614">
+<span class="eqno">(133)<a class="headerlink" href="#equation-d1b5b95e-56ef-46bb-8a14-73c5964f7614" title="Permalink to this equation">¶</a></span>\[\begin{align}
 N &amp;= 40 \\
 M &amp;= 400
 \end{align}\]</div>
@@ -1564,7 +1564,7 @@ M &amp;= 400
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 400, 40, 301)
 (3, 400)
-[0.355  0.7575 0.975 ]
+[0.36   0.7575 0.975 ]
 </pre></div>
 </div>
 </div>
@@ -1634,10 +1634,10 @@ M &amp;= 400
 </div></blockquote>
 <p>Mathematically, we can write our hypotheses as follows (using our above ingredients):</p>
 <ul class="simple">
-<li><p>Hyp 1: <span class="math notranslate nohighlight">\(\mathbf{E}(c_{accum})&gt;\mathbf{E}(c_{win})\)</span></p></li>
-<li><p>Hyp 2: <span class="math notranslate nohighlight">\(\mathbf{E}(c_{fast})&gt;\mathbf{E}(c_{slow})\)</span></p></li>
+<li><p>Hyp 1: <span class="math notranslate nohighlight">\(\mathbb{E}[c_{accum}] &gt; \mathbb{E}[c_{win}]\)</span></p></li>
+<li><p>Hyp 2: <span class="math notranslate nohighlight">\(\mathbb{E}[c_{fast}] &gt; \mathbb{E}[c_{slow}]\)</span></p></li>
 </ul>
-<p>Where <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> denotes taking the expected value (in this case the mean) of its argument: classification outcome in a given trial type.</p>
+<p>Where <span class="math notranslate nohighlight">\(\mathbb{E}[\cdot]\)</span> denotes the expected value (in this case the mean) of its argument, i.e., classification outcome in a given trial type.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="selected-toolkit">
@@ -1657,18 +1657,17 @@ M &amp;= 400
 <p><em>Part of step 6</em></p>
 <p>Brainstorming on the whiteboard, we came up with this set of steps:</p>
 <ol class="simple">
-<li><p>convert spike count data into design matrix: trials x neurons (with accumulated or windowed data)</p></li>
+<li><p>convert spike count data into design matrix: trials <span class="math notranslate nohighlight">\(\times\)</span> neurons (with accumulated or windowed data)</p></li>
 <li><p>get the classes each trial belongs to: stimulus (stationary / moving) or self-motion judgements (moving or not?) as a vector array</p></li>
 <li><p>split data into train and test sets (200 trials each for the 3 conditions?) with an equal number of each class</p></li>
 <li><p>fit logistic regression model on training set, and get predictions for test set</p></li>
 </ol>
-<p><img alt="picture" src="https://github.com/NeuromatchAcademy/course-content/blob/master/tutorials/static/data_analysis_step6.jpeg?raw=1" /></p>
-</div>
+<p align='center'><img src='https://github.com/NeuromatchAcademy/course-content/blob/main/tutorials/static/data_analysis_step6.jpeg?raw=True'/></p></div>
 <hr class="docutils" />
 <div class="section" id="model-implementation">
 <h1>Model implementation<a class="headerlink" href="#model-implementation" title="Permalink to this headline">¶</a></h1>
 <p><em>Part of step 7</em></p>
-<p>Below is a function that gets us the design matrix of observations X features (in this case: trials X neurons). It sums all spike counts, either across the whole time interval, or a window, specified in seconds before and after the peak acceleration at time=0 (it is the half-width of the window: <code class="docutils literal notranslate"><span class="pre">halfwin</span></code>).</p>
+<p>Below is a function that gets us the design matrix of observations X features (in this case: trials X neurons). It sums all spike counts, either across the whole time interval, or a window, specified in seconds before and after the peak acceleration at time <span class="math notranslate nohighlight">\(t=0\)</span> (it is the half-width of the window: <code class="docutils literal notranslate"><span class="pre">halfwin</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getDesignMatrix</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">motions</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">halfwin</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1705,9 +1704,9 @@ M &amp;= 400
     <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">movstims</span><span class="o">*</span><span class="n">trials</span><span class="p">,</span> <span class="n">neurons</span><span class="p">]),</span> <span class="n">y</span><span class="p">]</span>
   <span class="k">else</span><span class="p">:</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">100</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
     <span class="n">win_idx</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">halfwin</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">w_0</span><span class="p">,</span> <span class="n">w_1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">win_idx</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">win_idx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">w_0</span><span class="p">,</span> <span class="n">w_1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">win_idx</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">win_idx</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spikes</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">w_0</span><span class="p">:</span><span class="n">w_1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">movstims</span><span class="o">*</span><span class="n">trials</span><span class="p">,</span> <span class="n">neurons</span><span class="p">]),</span> <span class="n">y</span><span class="p">]</span>
 
 
@@ -1716,7 +1715,7 @@ M &amp;= 400
 <span class="n">a_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">400</span><span class="p">)</span> <span class="c1"># for grouping in cross validation? maybe not</span>
 
 <span class="c1"># test the function:</span>
-<span class="p">[</span><span class="n">desmat</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDesignMatrix</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">motions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">classes</span><span class="o">=</span><span class="n">m_r</span><span class="p">)</span>
+<span class="p">[</span><span class="n">desmat</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDesignMatrix</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">motions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">classes</span><span class="o">=</span><span class="n">m_r</span><span class="p">)</span>
 <span class="c1"># let&#39;s check the shape:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">desmat</span><span class="p">))</span>
 <span class="c1"># and let&#39;s check if the mean sum of spikes checks out:</span>
@@ -1744,7 +1743,7 @@ M &amp;= 400
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracies</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">),</span>
                              <span class="n">X</span><span class="o">=</span><span class="n">desmat</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">plotCrossValAccuracies</span><span class="p">(</span><span class="n">accuracies</span><span class="p">)</span>  <span class="c1"># this plotting function is copied from NMA-CN W1D4: Generalized Linear Models</span>
+<span class="n">plotCrossValAccuracies</span><span class="p">(</span><span class="n">accuracies</span><span class="p">)</span>  <span class="c1"># this plotting function is copied from NMA-CN Generalized Linear Models</span>
 </pre></div>
 </div>
 </div>
@@ -1856,7 +1855,7 @@ M &amp;= 400
   <span class="k">for</span> <span class="n">halfwin_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">halfwins</span><span class="p">)):</span>
 
     <span class="n">halfwin</span> <span class="o">=</span> <span class="n">halfwins</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">]</span>
-    <span class="n">lty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
+    <span class="n">lty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
     <span class="n">leg_hw</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accumulated&#39;</span><span class="p">,</span> <span class="s1">&#39;100 ms window&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">classes_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_sets</span><span class="p">)):</span>
@@ -1868,14 +1867,14 @@ M &amp;= 400
       <span class="k">for</span> <span class="n">motions_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">motions</span><span class="p">)):</span>
 
         <span class="n">motion</span> <span class="o">=</span> <span class="n">motions</span><span class="p">[</span><span class="n">motions_no</span><span class="p">]</span>
-        <span class="n">cond_acc</span> <span class="o">=</span> <span class="n">classifyMotionFromSpikes</span><span class="p">(</span><span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">,</span>
-                                            <span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span><span class="p">,</span>
-                                            <span class="n">halfwin</span> <span class="o">=</span> <span class="n">halfwin</span><span class="p">,</span>
-                                            <span class="n">motions</span> <span class="o">=</span> <span class="n">motion</span><span class="p">,</span>
+        <span class="n">cond_acc</span> <span class="o">=</span> <span class="n">classifyMotionFromSpikes</span><span class="p">(</span><span class="n">spikes</span><span class="o">=</span><span class="n">spikes</span><span class="p">,</span>
+                                            <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+                                            <span class="n">halfwin</span><span class="o">=</span><span class="n">halfwin</span><span class="p">,</span>
+                                            <span class="n">motions</span><span class="o">=</span><span class="n">motion</span><span class="p">,</span>
                                             <span class="n">cv</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">accuracies</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">,</span><span class="n">classes_no</span><span class="p">,</span><span class="n">motions_no</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cond_acc</span>
+        <span class="n">accuracies</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">,</span> <span class="n">classes_no</span><span class="p">,</span> <span class="n">motions_no</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cond_acc</span>
 
-      <span class="n">m_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracies</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">,</span><span class="n">classes_no</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+      <span class="n">m_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracies</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">,</span> <span class="n">classes_no</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
   <span class="k">return</span> <span class="n">accuracies</span>
 
@@ -1914,7 +1913,7 @@ M &amp;= 400
 
   <span class="k">for</span> <span class="n">halfwin_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
 
-    <span class="n">lty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
+    <span class="n">lty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
     <span class="n">leg_hw</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accumulated&#39;</span><span class="p">,</span> <span class="s1">&#39;100 ms window&#39;</span><span class="p">][</span><span class="n">halfwin_no</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">classes_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
@@ -1924,7 +1923,7 @@ M &amp;= 400
 
       <span class="n">m_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accuracies</span><span class="p">[</span><span class="n">halfwin_no</span><span class="p">,</span><span class="n">classes_no</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
       <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">m_acc</span><span class="p">,</span> <span class="n">lty</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
-               <span class="n">label</span><span class="o">=</span><span class="n">leg_class</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">leg_hw</span><span class="p">)</span>
+               <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">leg_class</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">leg_hw</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
              <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;slow ($1 m/s^2$)&#39;</span><span class="p">,</span> <span class="s1">&#39;fast ($2 m/s^2$)&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">])</span>
@@ -1979,13 +1978,13 @@ M &amp;= 400
 <p>If we put this all in one paragraph, we have our final complete abstract. But, first, do not include the letters in <em>your</em> abstract, and second, we did paraphrase the answers a little so they fit together.</p>
 <br>
 <p><strong>Abstract</strong></p>
-<p>(A) When sitting in a stationary train and seeing the train next to them move, people may experience the “train illusion”: they feel like they are moving when they are not, or vice versa. Vestibular information can disambiguate self motion from motion of the adjacent train. (B) However, it is unknown if accumulated, noisy vestibular neuron activity correlates with self-motion judgement. (C) Based on previous modeling efforts, we hypothesized that cumulative spike counts (not instantaneous) recorded from vestibular neurons can better discriminate experienced self motion judgements as opposed to true self motion. (D) Here we use logistic regression to classify both true self motion and experienced self motion judgements from vestibular neuron activity. This was done both with the vestibular signal accumulated across the full trial and with a 100 ms window (‘instantaneous’) around peak acceleration, and with 2 different speeds compared to a no-motion condition. (E) Decoding performance for accumulated vestibular signals was higher than for instantaneous signals. Further, experienced self motion judgements could be classified better than true self motion. (F) We conclude that accumulated, noisy vestibular signals during slowly-accelerating self motion may drive the train illusion. (G) Future research should model possible mechanisms by which visual signals may combine with vestibular signals to causally link these sensory signals to self-motion experience and illusions.</p>
+<p>(A) When sitting in a stationary train and seeing the train next to them move, people may experience the “train illusion”: they feel like they are moving when they are not, or vice versa. Vestibular information can disambiguate self motion from motion of the adjacent train. (B) However, it is unknown if accumulated, noisy vestibular neuron activity correlates with self-motion judgement. (C) Based on previous modeling efforts, we hypothesized that cumulative spike counts (not instantaneous) recorded from vestibular neurons can better discriminate experienced self motion judgements as opposed to true self motion. (D) Here we use logistic regression to classify both true self motion and experienced self motion judgements from vestibular neuron activity. This was done both with the vestibular signal accumulated across the full trial and with a 100 ms window (instantaneous) around peak acceleration, and with 2 different speeds compared to a no-motion condition. (E) Decoding performance for accumulated vestibular signals was higher than for instantaneous signals. Further, experienced self motion judgements could be classified better than true self motion. (F) We conclude that accumulated, noisy vestibular signals during slowly-accelerating self motion may drive the train illusion. (G) Future research should model possible mechanisms by which visual signals may combine with vestibular signals to causally link these sensory signals to self-motion experience and illusions.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="final-thoughts">
 <h1>Final thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">¶</a></h1>
 <p>Note that the analysis pipeline we built here was extremely simple and we used artificial data on purpose. It allowed us to go through all the steps of building a data neuroscience project, and hopefully you noticed that it is not always a linear process, you will go back to different steps if you hit a roadblock somewhere.</p>
-<p>There are many issues that we did not address, e.g.:</p>
+<p>There are many issues that we did not address, such as:</p>
 <ul class="simple">
 <li><p>we could have tried different decoders</p></li>
 <li><p>or find the optimal window</p></li>
@@ -1995,7 +1994,7 @@ M &amp;= 400
 <li><p>this is something that you want to explore as a neuroscientist</p></li>
 </ul>
 </li>
-<li><p>we could have run a GLM on the neurons*time array and then analyze the weightings to see if all acceleration steps are weighted equally (perfect integration)… or not?</p></li>
+<li><p>we could have run a GLM on the neurons <span class="math notranslate nohighlight">\(\times\)</span> time array and then analyze the weightings to see if all acceleration steps are weighted equally (perfect integration)… or not?</p></li>
 <li><p>what is the role of visual motion in this phenomenon?</p></li>
 </ul>
 <p>However, this project is not meant to be complete, and yours doesn’t have to be either. The goal of the projects is to go through <em>the process</em> of a modeling or data science project and put into practice one or more of the toolkits you learn at NMA with your group.</p>
