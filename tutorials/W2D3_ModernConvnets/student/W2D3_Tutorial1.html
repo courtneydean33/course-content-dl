@@ -2153,20 +2153,20 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8bab00a3bc5d47d3a6cba4d66837e2a1"}
+{"version_major": 2, "version_minor": 0, "model_id": "dc91123b4b6f40adb85c3f67cb93954f"}
 </script></div>
 </div>
 <p>Images are high dimensional. That is to say that <code class="docutils literal notranslate"><span class="pre">image_length</span></code> * <code class="docutils literal notranslate"><span class="pre">image_width</span></code> * <code class="docutils literal notranslate"><span class="pre">image_channels</span></code> is a big number, and multiplying that big number by a normal sized fully-connected layer leads to a ton of parameters to learn. Yesterday, we learned about convolutional neural networks, one way of working around high dimensionality in images and other domains.</p>
 <p>The widget below (i.e., <em>Interactive Demo 1</em>) calculates the parameters required for a single convolutional or fully connected layer that operates on an image of a certain height and width.</p>
 <p>Recall that, the number of parameters of a convolutional layer <span class="math notranslate nohighlight">\(l\)</span> are calculated as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8e0f519-de57-452c-81e4-1f69009979f8">
-<span class="eqno">(83)<a class="headerlink" href="#equation-d8e0f519-de57-452c-81e4-1f69009979f8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-12d1a1a0-cc40-43ef-8239-f72187988fe2">
+<span class="eqno">(83)<a class="headerlink" href="#equation-12d1a1a0-cc40-43ef-8239-f72187988fe2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{num_of_params}_l = \left[ \left( H \times W \times K_{l-1} \right) + 1 \right] \times K_l
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(H\)</span> denotes the shape of the height of the filter, <span class="math notranslate nohighlight">\(W\)</span> the shape of the width of the filter, and <span class="math notranslate nohighlight">\(K_l\)</span> denotes the number of the filters in the <span class="math notranslate nohighlight">\(l\)</span>-th layer. The added <span class="math notranslate nohighlight">\(1\)</span> is because of the bias term for each filter.</p>
 <p>While a fully connected layer contains:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3422f1b6-6a5b-4fe9-b46a-c77d5ba84963">
-<span class="eqno">(84)<a class="headerlink" href="#equation-3422f1b6-6a5b-4fe9-b46a-c77d5ba84963" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39a41c82-6652-4984-91ac-af530ddb185f">
+<span class="eqno">(84)<a class="headerlink" href="#equation-39a41c82-6652-4984-91ac-af530ddb185f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{num_of_params}_l = \left[ \left( N_{l-1} \times N_l \right) + 1 \times N_l \right]
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(N_l\)</span> denotes the number of nodes in the <span class="math notranslate nohighlight">\(l\)</span>-th layer.</p>
@@ -2377,7 +2377,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "a9ed01148fc54d91896657ba33bcd059"}
+{"version_major": 2, "version_minor": 0, "model_id": "beb794179fe845b298d5b60577970064"}
 </script></div>
 </div>
 </div>
@@ -2394,7 +2394,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "69c329e7f0d44559b19ce2bf07980eaa"}
+{"version_major": 2, "version_minor": 0, "model_id": "c9b0b6d788794d37af9af8fa548759ab"}
 </script></div>
 </div>
 </div>
@@ -2434,9 +2434,9 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "65671e4a664644829530910ffb382001"}
+{"version_major": 2, "version_minor": 0, "model_id": "b96fbefb60d744238cc3920269e0a749"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "6ffffb5cfe944ca1b645a174338d8fa2"}
+{"version_major": 2, "version_minor": 0, "model_id": "e331faa6ae7f43ba9aa1d44f823f227f"}
 </script></div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D3_ModernConvnets/solutions/W2D3_Tutorial1_Solution_71e2a897.py"><em>Click for solution</em></a></p>
@@ -2452,7 +2452,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f14e6d3a476a4d6e85cf2a1393197c46"}
+{"version_major": 2, "version_minor": 0, "model_id": "2b9747c663fd4b48b0c6f9651c7cf2ed"}
 </script></div>
 </div>
 </div>
@@ -2500,7 +2500,7 @@ In this section you’ll have the opportunity to play with AlexNet and see the w
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ed76bf1f6ada496eac0cdee958ec5eb3"}
+{"version_major": 2, "version_minor": 0, "model_id": "ad34b55c9c7a46a089ce41ff4ed0fb99"}
 </script></div>
 </div>
 </div>
@@ -2567,9 +2567,9 @@ What do these filters remind you of?</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f544249a308e452e8c9adf235941d26c"}
+{"version_major": 2, "version_minor": 0, "model_id": "cf34ff45422348ec87b3b24c9b7708e3"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "73e1abab4fa242c2ad78c82c52e09f35"}
+{"version_major": 2, "version_minor": 0, "model_id": "352c4549c2f7450d8f4ef7bdb4a2a755"}
 </script></div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D3_ModernConvnets/solutions/W2D3_Tutorial1_Solution_19a7c412.py"><em>Click for solution</em></a></p>
@@ -2650,7 +2650,7 @@ What do these filters remind you of?</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "de70cacb930e42f19925264e52f0f114"}
+{"version_major": 2, "version_minor": 0, "model_id": "04adeb0f9bf04d678ce923283d33442a"}
 </script></div>
 </div>
 </div>
@@ -2688,9 +2688,9 @@ What do these filters remind you of?</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "10e63a76943b4ed3983a4a24e72d5766"}
+{"version_major": 2, "version_minor": 0, "model_id": "83ad0aca66d14a3eb669878150809e51"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "6529c2cfe7944b6daa72ea970aa97212"}
+{"version_major": 2, "version_minor": 0, "model_id": "b478904b4ce34b9d9ff81881d51d8003"}
 </script></div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D3_ModernConvnets/solutions/W2D3_Tutorial1_Solution_9d15a19c.py"><em>Click for solution</em></a></p>
@@ -2711,7 +2711,7 @@ What do these filters remind you of?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d9070978268e43daa8a8eda6d38d2783"}
+{"version_major": 2, "version_minor": 0, "model_id": "fbe642a7cdb6413bb058b8a43c0aa9a3"}
 </script></div>
 </div>
 <p>In this section we’ll be working with a state of the art CNN model called <a class="reference external" href="https://arxiv.org/abs/1512.03385">ResNet</a>. ResNet has two particularly interesting features. First, it uses skip connections to avoid the vanishing gradient problem. Second, each block (collection of layers) in a ResNet can be treated as learning a residual function.</p>
@@ -3991,11 +3991,11 @@ What do these filters remind you of?</p>
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "6834dd1bf1294f30a1c70bea2620e8cb"}
+{"version_major": 2, "version_minor": 0, "model_id": "efaf59cdc69b453f8827499163b887bf"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8f4c4641e7044bb6abedf9b0237445d6"}
+{"version_major": 2, "version_minor": 0, "model_id": "351784a4b05f40abbc3fad01c1a38385"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "adabca0e15b441e687820efafef96faf"}
+{"version_major": 2, "version_minor": 0, "model_id": "5e857b0a61684955957fb71e48943ee3"}
 </script></div>
 </div>
 </div>
@@ -4157,7 +4157,7 @@ What do these filters remind you of?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "4cf28fd450ba47638bf8f8c9b527d127"}
+{"version_major": 2, "version_minor": 0, "model_id": "8e25ea1cd40542048e656d94d9aed3b4"}
 </script></div>
 </div>
 </div>
@@ -4287,11 +4287,11 @@ What do these filters remind you of?</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "07975183053d404ebbd4ccc32a49b0cf"}
+{"version_major": 2, "version_minor": 0, "model_id": "2a94e437f26444c380dc67046c5d42b9"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "0c5c906893ec47ffbbc470d3411396da"}
+{"version_major": 2, "version_minor": 0, "model_id": "f72490f685144c36b9458bb37c145e7c"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "122d200b10144583bbec282c086ad1c2"}
+{"version_major": 2, "version_minor": 0, "model_id": "db554ed45a814f948223a962436081e8"}
 </script></div>
 </div>
 </div>
@@ -4334,9 +4334,9 @@ What do these filters remind you of?</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "b3895aa862d84ba8be28cf55d2b74653"}
+{"version_major": 2, "version_minor": 0, "model_id": "98601d53be8f48788e3c31e915975581"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "17620a9949034740925502ce9fa573cd"}
+{"version_major": 2, "version_minor": 0, "model_id": "6b9e99486abf482ebd779e95d2b13306"}
 </script></div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D3_ModernConvnets/solutions/W2D3_Tutorial1_Solution_4b6904da.py"><em>Click for solution</em></a></p>
@@ -4358,7 +4358,7 @@ What do these filters remind you of?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ead6fc96c93e484ead88642c7c374052"}
+{"version_major": 2, "version_minor": 0, "model_id": "92c9e1190d1c43f9b07b026365b46a5e"}
 </script></div>
 </div>
 </div>
@@ -4451,9 +4451,9 @@ Above you can see the example given in the video for you to check if your calcul
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "7aa548005d844a618ac99051715497a0"}
+{"version_major": 2, "version_minor": 0, "model_id": "e613d6aa34e64a7a97e0753bd1eb12c7"}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f327ff55098b4701a859a0e854376fd6"}
+{"version_major": 2, "version_minor": 0, "model_id": "1fa4f53ac3ca4eb28b9e5b271ff96efc"}
 </script></div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D3_ModernConvnets/solutions/W2D3_Tutorial1_Solution_9f27445e.py"><em>Click for solution</em></a></p>
@@ -4470,7 +4470,7 @@ Above you can see the example given in the video for you to check if your calcul
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ea2b1c87c9344ccfb65efd3416205c4f"}
+{"version_major": 2, "version_minor": 0, "model_id": "5919ff07c34b4dff9fd9069327622601"}
 </script></div>
 </div>
 <p>The most common way large image models are trained in practice is via transfer learning. One first pretrains a network on a large classification dataset like ImageNet, then uses the weights of this network as initialization for training (“fine-tuning”) that network on your task of choice.</p>
@@ -4519,15 +4519,15 @@ Above you can see the example given in the video for you to check if your calcul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['Charmander',
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['Ivysaur',
+ 'Charmeleon',
+ 'Charmander',
+ 'Blastoise',
  'Bulbasaur',
- 'Ivysaur',
- 'Charizard',
  'Squirtle',
  'Wartortle',
- 'Charmeleon',
  'Venusaur',
- 'Blastoise']
+ 'Charizard']
 </pre></div>
 </div>
 </div>
@@ -4669,82 +4669,26 @@ Above you can see the example given in the video for you to check if your calcul
 <img alt="../../../_images/W2D3_Tutorial1_134_0.png" src="../../../_images/W2D3_Tutorial1_134_0.png"/>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_44628</span><span class="o">/</span><span class="mf">3760956877.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">output</span> <span class="o">=</span> <span class="n">resnet</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_44943</span><span class="o">/</span><span class="mf">3760956877.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">output</span> <span class="o">=</span> <span class="n">resnet</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1194</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/torch/_tensor.py</span> in <span class="ni">backward</span><span class="nt">(self, gradient, retain_graph, create_graph, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span>         <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">489</span>             <span class="bp">self</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span>
+<span class="g g-Whitespace">    </span><span class="mi">490</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torchvision/models/resnet.py</span> in <span class="ni">forward</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">283</span> 
-<span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">285</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_impl</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">286</span> 
-<span class="g g-Whitespace">    </span><span class="mi">287</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torchvision/models/resnet.py</span> in <span class="ni">_forward_impl</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxpool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span> 
-<span class="ne">--&gt; </span><span class="mi">273</span>         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span>         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span>         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1194</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/container.py</span> in <span class="ni">forward</span><span class="nt">(self, input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span>         <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">204</span>             <span class="nb">input</span> <span class="o">=</span> <span class="n">module</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span>         <span class="k">return</span> <span class="nb">input</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1194</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torchvision/models/resnet.py</span> in <span class="ni">forward</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> 
-<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bn2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1194</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/conv.py</span> in <span class="ni">forward</span><span class="nt">(self, input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span> 
-<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">463</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conv_forward</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span> 
-<span class="g g-Whitespace">    </span><span class="mi">465</span> <span class="k">class</span> <span class="nc">Conv3d</span><span class="p">(</span><span class="n">_ConvNd</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.15/x64/lib/python3.7/site-packages/torch/nn/modules/conv.py</span> in <span class="ni">_conv_forward</span><span class="nt">(self, input, weight, bias)</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span>                             <span class="n">_pair</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span>         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">460</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">padding</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span> 
-<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/torch/autograd/__init__.py</span> in <span class="ni">backward</span><span class="nt">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="n">Variable</span><span class="o">.</span><span class="n">_execution_engine</span><span class="o">.</span><span class="n">run_backward</span><span class="p">(</span>  <span class="c1"># Calls into the C++ engine to run the backward pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>         <span class="n">tensors</span><span class="p">,</span> <span class="n">grad_tensors_</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>         <span class="n">allow_unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">accumulate_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Calls into the C++ engine to run the backward pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span> 
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
